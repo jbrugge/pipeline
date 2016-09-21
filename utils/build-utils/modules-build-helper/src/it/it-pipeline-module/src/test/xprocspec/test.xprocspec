@@ -27,9 +27,11 @@
 					<c:file name="META-INF/MANIFEST.MF"/>
 					<c:file name="META-INF/catalog.xml"/>
 					<c:file name="META-INF/services/java.lang.Runnable"/>
+					<c:file name="META-INF/services/org.daisy.pipeline.script.XProcScriptService"/>
 					<c:file name="OSGI-INF/foo-service.xml"/>
 					<c:file name="OSGI-INF/script.xml"/>
 					<c:file name="css/foo.css"/>
+					<c:file name="impl/XProcScript_script_SPI.class"/>
 					<c:file name="org/daisy/impl/Foo.class"/>
 					<c:file name="org/daisy/impl/Foo_SPI.class"/>
 					<c:file name="xml/foo.xsl"/>
@@ -59,7 +61,6 @@
 						<scr:provide interface="org.daisy.pipeline.script.XProcScriptService"/>
 					</scr:service>
 					<scr:property name="script.id" type="String" value="script"/>
-					<scr:property name="script.name" type="String" value="Example script"/>
 					<scr:property name="script.description" type="String" value="Does stuff."/>
 					<scr:property name="script.url" type="String" value="http://www.daisy.org/pipeline/modules/foo-utils/script.xpl"/>
 					<scr:property name="script.version" type="String" value="0-SNAPSHOT"/>

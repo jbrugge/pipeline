@@ -47,9 +47,9 @@
     <commons.codec.version>1.6</commons.codec.version>
     <commons.fileupload.version>1.2.2</commons.fileupload.version>
     <commons.io.version>2.3</commons.io.version>
-    <eclipse.persistence.version>2.3.2</eclipse.persistence.version>
+    <eclipse.persistence.version>2.5.0</eclipse.persistence.version>
     <guava.version>15.0</guava.version>
-    <javax.persistence.version>2.0.3</javax.persistence.version>
+    <javax.persistence.version>2.1.0</javax.persistence.version>
     <javax.servlet-api.version>2.5</javax.servlet-api.version>
     <javax.servlet-api.osgi.version>2.5.0</javax.servlet-api.osgi.version> <!-- FIXME: use for compilation and runtime -->
     <jing.version>20091111</jing.version>
@@ -183,7 +183,7 @@
       <dependency>
         <groupId>org.apache.derby</groupId>
         <artifactId>derby</artifactId>
-        <version>10.9.1.0</version>
+        <version>10.12.1.1</version>
       </dependency>
       <dependency>
         <groupId>org.eclipse.gemini</groupId>

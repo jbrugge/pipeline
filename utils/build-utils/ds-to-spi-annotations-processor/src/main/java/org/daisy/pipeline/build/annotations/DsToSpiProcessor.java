@@ -141,10 +141,7 @@ public class DsToSpiProcessor extends AbstractProcessor {
 								printError("@Component with enabled = false not supported", e);
 								throw new RuntimeException();
 							}
-							if (componentAnnotation.immediate()) {
-								printError("@Component with immediate = true not supported", e);
-								throw new RuntimeException();
-							}
+							component.immediate = componentAnnotation.immediate();
 							for (String p : componentAnnotation.property()) {
 								Matcher m = PROPERTY_PATTERN.matcher(p);
 								if (m.matches()) {
@@ -306,6 +303,24 @@ public class DsToSpiProcessor extends AbstractProcessor {
 						writer.write((component.packageName != null ? component.packageName + "." : "") + component.spiClassName);
 						writer.newLine();
 					}
+				}
+				writer.close();
+			}
+			Set<ComponentModel> immediateComponents = new HashSet<ComponentModel>();
+			for (ComponentModel component : components.values()) {
+				if (component.getImmediate()) {
+					immediateComponents.add(component);
+				}
+			}
+			if (!immediateComponents.isEmpty()) {
+				String service = "org.daisy.common.service.CreateOnStart";
+				File dest = new File(new File(generatedResourcesDirectory, "META-INF/services"), service);
+				dest.getParentFile().mkdirs();
+				printWarning("creating META-INF/services file: " + dest);
+				BufferedWriter writer = new BufferedWriter(new FileWriter(dest));
+				for (ComponentModel component : immediateComponents) {
+					writer.write(component.packageName + "." + component.spiClassName);
+					writer.newLine();
 				}
 				writer.close();
 			}

@@ -26,8 +26,12 @@
 				<c:zipfile name="it-pipeline-module-0-SNAPSHOT.jar">
 					<c:file name="META-INF/MANIFEST.MF"/>
 					<c:file name="META-INF/catalog.xml"/>
+					<c:file name="META-INF/services/java.lang.Runnable"/>
+					<c:file name="OSGI-INF/foo-service.xml"/>
 					<c:file name="OSGI-INF/script.xml"/>
 					<c:file name="css/foo.css"/>
+					<c:file name="org/daisy/impl/Foo.class"/>
+					<c:file name="org/daisy/impl/Foo_SPI.class"/>
 					<c:file name="xml/foo.xsl"/>
 					<c:file name="xml/script.xpl"/>
 				</c:zipfile>

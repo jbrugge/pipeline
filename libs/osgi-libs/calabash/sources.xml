@@ -7,12 +7,12 @@
   </formats>
   <fileSets>
     <fileSet>
-      <directory>${project.build.directory}/sources/src</directory>
+      <directory>sources/src</directory>
       <outputDirectory>/</outputDirectory>
       <useDefaultExcludes>true</useDefaultExcludes>
     </fileSet>
     <fileSet>
-      <directory>${project.build.directory}/sources/resources</directory>
+      <directory>sources/resources</directory>
       <outputDirectory>/</outputDirectory>
       <useDefaultExcludes>true</useDefaultExcludes>
     </fileSet>

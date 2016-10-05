@@ -7,5 +7,5 @@
 	remote = https://github.com/ndw/xmlcalabash1
 	branch = saxon95
 	commit = fad065454a25e94c51b1c62775eee41730095cfb
-	parent = 4f614839592e660c5079a08c2202e71d8d2444b9
+	parent = e44a6e0e9d51422be4ee0d205cb1652aac22e3b0
 	cmdver = 0.3.0

@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ndw/xmlcalabash1
+	branch = saxon95
+	commit = fad065454a25e94c51b1c62775eee41730095cfb
+	parent = 4f614839592e660c5079a08c2202e71d8d2444b9
+	cmdver = 0.3.0

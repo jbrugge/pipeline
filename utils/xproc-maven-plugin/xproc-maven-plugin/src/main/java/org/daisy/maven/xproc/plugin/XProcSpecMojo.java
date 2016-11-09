@@ -96,10 +96,17 @@ public class XProcSpecMojo extends AbstractMojo {
 			System.setProperty("logback.configurationFile", logbackXml.toURI().toASCIIString());
 		else {
 			try {
-				ch.qos.logback.classic.Logger root= (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(
+				ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(
 					ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME);
 				root.setLevel(ch.qos.logback.classic.Level.WARN); }
-			catch (ClassCastException e) {}}
+			catch (ClassCastException e) {
+				try {
+					
+					// FIXME: this warning should also be shown if logback.xml exists
+					System.out.println("WARNING: There is another SLF4J implementation on your class path that is chosen over logback: "
+					                   + LoggerFactory.getLogger(ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME)
+					                                  .getClass().getProtectionDomain().getCodeSource().getLocation()); }
+				catch (SecurityException se) {}}}
 		java.util.logging.LogManager.getLogManager().reset();
 		SLF4JBridgeHandler.install();
 		java.util.logging.Logger.getLogger("").setLevel(java.util.logging.Level.FINEST);

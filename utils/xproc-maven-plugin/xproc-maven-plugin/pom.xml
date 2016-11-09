@@ -74,6 +74,15 @@
             <xproc-maven-plugin.version>${project.version}</xproc-maven-plugin.version>
             <xproc-engine-calabash.version>1.0.1-SNAPSHOT</xproc-engine-calabash.version>
           </properties>
+          <!--
+              This sets the level of Calabash's logging but a side effect is that it also sets the
+              level of Maven's own logging. We can't configure the logging with Logback because
+              slf4j-simple is also on the classpath and it is chosen over logback-classic. We can't
+              remove slf4j-simple from the classpath because it is a dependency of Maven itself. The
+              solution is probably to run the tests in a forked process, like the surefire-plugin
+              does also.
+          -->
+          <mavenOpts>-Dorg.slf4j.simpleLogger.defaultLogLevel=debug</mavenOpts>
           <goals>
             <goal>surefire-report:report</goal>
           </goals>

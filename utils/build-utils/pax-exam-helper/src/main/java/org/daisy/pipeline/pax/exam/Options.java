@@ -92,7 +92,7 @@ public abstract class Options {
 	}
 	
 	public static MavenBundleOption xprocspec() {
-		return mavenBundleComposite(
+		return mavenBundles(
 			mavenBundle("org.daisy.maven:xprocspec-runner:?"),
 			mavenBundle("org.daisy.xprocspec:xprocspec:?")
 		);
@@ -294,7 +294,7 @@ public abstract class Options {
 		}
 	}
 	
-	private static MavenBundleOption mavenBundleComposite(final MavenBundleOption... options) {
+	public static MavenBundleOption mavenBundles(final MavenBundleOption... options) {
 		final MavenBundle[] bundles; {
 			List<MavenBundle> list = new ArrayList<MavenBundle>();
 			for (MavenBundleOption o : options)

@@ -2,6 +2,7 @@
 package org.daisy.pipeline.gui;
 
 import java.text.Collator;
+import java.io.File;
 import java.net.MalformedURLException;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.transformation.SortedList;
@@ -13,12 +14,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import javafx.collections.FXCollections;
+import javafx.beans.property.SimpleStringProperty;
+
 
 import org.daisy.pipeline.gui.databridge.Script;
 import org.daisy.pipeline.job.Job;
@@ -164,16 +170,24 @@ public class NewJobPane extends VBox {
                 for (ScriptFieldAnswer input : boundScript.getInputFields()) {
                         addInputField(input);
                 }
-                for (ScriptFieldAnswer option : boundScript.getRequiredOptionFields()) {
-                        addOptionField(option);
+                
+                // if this script produces results, add an output directory field. that directory will contain subdirs for each specific output option.
+                if (boundScript.getScript().hasResultOptions()) {
+                	// pass it the property in boundScript to bind the text field widget to
+                	scriptFormControlsGrid.addOutputField(boundScript.getOutputDir());
                 }
                 
-                if (Iterators.size(boundScript.getOptionalOptionFields().iterator()) > 0) {
+                // add the required non-result options
+                for (ScriptFieldAnswer option : boundScript.getOptionFields(true)) {
+                        addOptionField(option);
+                }
+                // add the optional non-result options
+                if (Iterators.size(boundScript.getOptionFields(false).iterator()) > 0) {
                         Text options = new Text("Options:");
                         options.getStyleClass().add("subtitle");
                         scriptFormControlsGrid.addRow(options);
                 }
-                for (ScriptFieldAnswer option : boundScript.getOptionalOptionFields()) {
+                for (ScriptFieldAnswer option : boundScript.getOptionFields(false)) {
                         addOptionField(option);
                 }
                 
@@ -214,6 +228,7 @@ public class NewJobPane extends VBox {
                         
                 }
         }
+        
         
         private void addStandardButtons() {
                 Button run = new Button("Run");

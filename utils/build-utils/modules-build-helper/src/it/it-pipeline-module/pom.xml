@@ -33,8 +33,9 @@
     </dependency>
     <dependency>
       <groupId>org.daisy.pipeline</groupId>
-      <artifactId>common-utils</artifactId>
-      <version>${common-utils.version}</version>
+      <artifactId>ds-to-spi-runtime</artifactId>
+      <version>${ds-to-spi-runtime.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>

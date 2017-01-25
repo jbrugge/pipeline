@@ -1,4 +1,4 @@
-package org.daisy.common.service;
+package org.daisy.common.spi;
 
 /**
  * Tag interface for indicating that a component is to be created immediately

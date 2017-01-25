@@ -18,6 +18,10 @@
 
   <dependencies>
       <dependency>
+        <groupId>org.daisy.pipeline</groupId>
+        <artifactId>xmlcatalog</artifactId>
+      </dependency>
+      <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.core</artifactId>
         <scope>provided</scope>
@@ -28,12 +32,13 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
+        <groupId>org.daisy.pipeline</groupId>
+        <artifactId>ds-to-spi-runtime</artifactId>
+        <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>org.daisy.pipeline</groupId>
-        <artifactId>xmlcatalog</artifactId>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
       </dependency>
   </dependencies>
 

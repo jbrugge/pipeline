@@ -313,7 +313,7 @@ public class DsToSpiProcessor extends AbstractProcessor {
 				}
 			}
 			if (!immediateComponents.isEmpty()) {
-				String service = "org.daisy.common.service.CreateOnStart";
+				String service = "org.daisy.common.spi.CreateOnStart";
 				File dest = new File(new File(generatedResourcesDirectory, "META-INF/services"), service);
 				dest.getParentFile().mkdirs();
 				printWarning("creating META-INF/services file: " + dest);

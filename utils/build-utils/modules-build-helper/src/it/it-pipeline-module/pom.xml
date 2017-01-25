@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <!--
+      Ideally this test should be run in modules-parent, but that is not possible without changing
+      the POM. Therefore we inherit from a released version of modules-parent and override the
+      version of modules-build-helper. Any differences between the released modules-parent and the
+      latest snapshot should be replayed in this POM.
+  -->
   <parent>
     <groupId>org.daisy.pipeline.modules</groupId>
     <artifactId>modules-parent</artifactId>
@@ -20,6 +26,14 @@
           <groupId>org.daisy.pipeline.build</groupId>
           <artifactId>modules-build-helper</artifactId>
           <version>${modules-build-helper.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <configuration>
+            <archive>
+              <addMavenDescriptor>false</addMavenDescriptor>
+            </archive>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

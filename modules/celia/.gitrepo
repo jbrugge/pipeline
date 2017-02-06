@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:celiafi/pipeline-mod-celia.git
+	branch = master
+	commit = 3518058709c587b460cb703e8abbc8e964fc2eb4
+	parent = fced3b0868ce0f2b374d4be78843d49471018b4f
+	cmdver = 0.3.0

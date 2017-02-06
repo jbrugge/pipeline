@@ -7,5 +7,5 @@
 	remote = git@github.com:celiafi/pipeline-mod-celia.git
 	branch = master
 	commit = 3518058709c587b460cb703e8abbc8e964fc2eb4
-	parent = fced3b0868ce0f2b374d4be78843d49471018b4f
+	parent = dc1971ea57a119c7cdbb9246f38467c22d6c05cf
 	cmdver = 0.3.0

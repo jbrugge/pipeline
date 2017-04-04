@@ -14,6 +14,7 @@ import org.ops4j.pax.exam.Option;
 
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.options;
+import static org.ops4j.pax.exam.CoreOptions.systemPackage;
 
 public class Config {
 	
@@ -25,6 +26,7 @@ public class Config {
 			calabashConfigFile(),
 			thisBundle(),
 			junitBundles(),
+			systemPackage("javax.xml.stream;version=\"1.0.1\""),
 			mavenBundlesWithDependencies(
 				brailleModule("common-utils"),
 				brailleModule("css-utils"),
